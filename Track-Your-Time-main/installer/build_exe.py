@@ -16,7 +16,7 @@ BUILD_DIR = ROOT_DIR / "build"
 
 def clean_build():
     """Clean previous build artifacts"""
-    print("🧹 Cleaning previous builds...")
+    print("[*] Cleaning previous builds...")
     if DIST_DIR.exists():
         shutil.rmtree(DIST_DIR)
     if BUILD_DIR.exists():
@@ -24,13 +24,13 @@ def clean_build():
     spec_file = ROOT_DIR / "gui_tracker.spec"
     if spec_file.exists():
         spec_file.unlink()
-    print("✅ Clean complete\n")
+    print("[OK] Clean complete\n")
 
 def create_icon():
     """Create a simple icon if none exists"""
     icon_path = ROOT_DIR / "assets" / "icon.ico"
     if not icon_path.exists():
-        print("📝 Creating default icon...")
+        print("[*] Creating default icon...")
         os.makedirs(ROOT_DIR / "assets", exist_ok=True)
 
         # Create a simple icon using PIL
@@ -53,9 +53,9 @@ def create_icon():
 
             # Save as ICO
             img.save(icon_path, format='ICO', sizes=[(256, 256)])
-            print(f"✅ Icon created at {icon_path}\n")
+            print(f"[OK] Icon created at {icon_path}\n")
         except Exception as e:
-            print(f"⚠️  Could not create icon: {e}")
+            print(f"[WARN] Could not create icon: {e}")
             return None
 
     return str(icon_path)
@@ -91,7 +91,9 @@ def build_exe():
         "--hidden-import=customtkinter",
         "--hidden-import=tkinter",
         "--hidden-import=matplotlib",
-        "--hidden-import=pandas",
+        "--hidden-import=matplotlib.backends.backend_tkagg",
+        "--hidden-import=openpyxl",
+        "--hidden-import=reportlab",
 
         # Add data files
         f"--add-data={ROOT_DIR / 'ui'};ui",
@@ -100,6 +102,12 @@ def build_exe():
         "--exclude-module=tests",
         "--exclude-module=jupyter",
         "--exclude-module=notebook",
+        "--exclude-module=IPython",
+        "--exclude-module=pandas",
+        "--exclude-module=numpy.distutils",
+        "--exclude-module=tensorflow",
+        "--exclude-module=torch",
+        "--exclude-module=scipy",
 
         # Optimization
         "--optimize=2",

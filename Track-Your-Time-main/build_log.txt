@@ -1,0 +1,1 @@
+C:\Users\eligo\AppData\Local\Microsoft\WindowsApps\python.exe: can't open file 'C:\\Users\\eligo\\Downloads\\Track-Your-Time-main\\Track-Your-Time-main\\installerbuild_exe.py': [Errno 2] No such file or directory
