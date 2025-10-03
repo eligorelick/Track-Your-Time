@@ -1,0 +1,30 @@
+# Core dependencies (required)
+pywin32; sys_platform == 'win32'
+psutil; sys_platform == 'win32'
+
+# GUI Framework (required for GUI version)
+customtkinter>=5.2.0
+
+# Optional dependencies for enhanced features
+# Install with: pip install -r requirements.txt
+
+# System tray icon and notifications (recommended)
+plyer
+pystray
+Pillow>=10.0.0
+
+# Analytics and charts (for interactive charts feature)
+matplotlib>=3.5.0
+
+# Excel export support
+openpyxl>=3.0.0
+
+# PDF export support
+reportlab>=3.6.0
+
+# For email reports (built-in smtplib, no install needed)
+# Additional email security (optional)
+# cryptography
+
+# For cloud sync (future feature)
+# requests

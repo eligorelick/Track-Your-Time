@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# Build files
+build/
+dist/
+*.egg-info/
+*.spec
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Generated config files (user-specific, don't commit)
+time_tracking.json
+tracker_config.json
+custom_themes.json
+shortcuts.json
+email_config.json
+pomodoro_config.json
+pomodoro_sessions.json
+activity_tags.json
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
